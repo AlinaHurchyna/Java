@@ -2,6 +2,7 @@ package Pilkarze;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Team {
     private List<Player> players;
@@ -34,6 +35,25 @@ public class Team {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Team)) return false;
+        Team team = (Team) o;
+        return Objects.equals(players, team.players) && Objects.equals(country, team.country);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(players, country);
+    }
+
+    @Override
+    public String toString() {
+        return "Team{" +
+                "players=" + players +
+                ", country='" + country + '\'' +
+                '}';
     }
 }
 

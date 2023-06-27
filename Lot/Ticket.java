@@ -4,12 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Ticket {
-    private List<Passenger> passengers;
-    private FlightClass flightClass;
-    private double basePrice;
+    private final List<Passenger> passengers = new ArrayList<>();
+    private final FlightClass flightClass;
+    private final double basePrice;
 
     public Ticket(FlightClass flightClass, double basePrice) {
-        this.passengers = new ArrayList<>();
         this.flightClass = flightClass;
         this.basePrice = basePrice;
     }

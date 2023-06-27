@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Flight {
-    private List<Ticket> tickets;
-    private int maxCapacity;
+    private final List<Ticket> tickets = new ArrayList<>();
+    private final int maxCapacity;
 
     public Flight(int maxCapacity) {
-        this.tickets = new ArrayList<>();
         this.maxCapacity = maxCapacity;
     }
 
@@ -20,20 +19,13 @@ public class Flight {
         }
     }
 
+    // Gettery
 
     public List<Ticket> getTickets() {
         return tickets;
     }
 
-    public void setTickets(List<Ticket> tickets) {
-        this.tickets = tickets;
-    }
-
     public int getMaxCapacity() {
         return maxCapacity;
-    }
-
-    public void setMaxCapacity(int maxCapacity) {
-        this.maxCapacity = maxCapacity;
     }
 }
