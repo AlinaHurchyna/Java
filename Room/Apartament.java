@@ -47,6 +47,13 @@ public class Apartament {
     public int hashCode() {
         return Objects.hash(rooms);
     }
+    public double calculateTotalArea() {
+        double totalArea = 0;
+        for (Room room : rooms) {
+            totalArea += room.getArea();
+        }
+        return totalArea;
+    }
 
     public String toString() {
         return "Apartament{" +
