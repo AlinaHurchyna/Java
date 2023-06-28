@@ -12,8 +12,8 @@ public class Apartament {
     }
 
     public void addRoom(Room room) {
-        if (canAddRoom(room.getType())) {
-            System.out.println("Nie można dodać pomieszczenia rodzaju" + room.getType());
+        if (canAddRoom(room.getRoomType())) {
+            System.out.println("Nie można dodać pomieszczenia rodzaju" + room.getRoomType());
             return;
         }
         rooms.add(room);
@@ -24,7 +24,7 @@ public class Apartament {
     private boolean canAddRoom(RoomType roomType) {
         if (roomType == RoomType.ATTIC || roomType == RoomType.KITCHEN) {
             for (Room room : rooms) {
-                if (room.getType() == roomType) {
+                if (room.getRoomType() == roomType) {
                     return false;
 
                 }
@@ -33,6 +33,18 @@ public class Apartament {
 
         }
         return true;
+    }
+    public double calculateTotalArea() {
+        double totalArea = 0;
+        for (Room room : rooms) {
+            totalArea += room.getArea();
+        }
+        return totalArea;
+    }
+    public double calculateTotalAreaUsingStream() {
+        return rooms.stream()
+                .mapToDouble(Room::getArea)
+                .sum();
     }
 
     @Override
@@ -47,13 +59,7 @@ public class Apartament {
     public int hashCode() {
         return Objects.hash(rooms);
     }
-    public double calculateTotalArea() {
-        double totalArea = 0;
-        for (Room room : rooms) {
-            totalArea += room.getArea();
-        }
-        return totalArea;
-    }
+
 
     public String toString() {
         return "Apartament{" +
