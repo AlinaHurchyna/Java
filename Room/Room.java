@@ -13,7 +13,7 @@ public class Room {
         this.balconyCount = balconyCount;
     }
 
-    public RoomType getRoomType() {
+    public  final RoomType getRoomType() {
         return roomType;
     }
 
