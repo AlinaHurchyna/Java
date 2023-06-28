@@ -1,14 +1,13 @@
 package Room;
 
-import java.util.Objects;
-
 public class Room {
-    private   RoomType roomType;
+    private final RoomType roomType;
     private final double area;
     private final int windowCount;
     private  final int balconyCount;
 
     public Room(RoomType roomType, double area, int windowCount, int balconyCount) {
+        this.roomType = roomType;
         this.area = area;
         this.windowCount = windowCount;
         this.balconyCount = balconyCount;
