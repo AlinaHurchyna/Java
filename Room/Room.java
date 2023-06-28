@@ -3,10 +3,10 @@ package Room;
 import java.util.Objects;
 
 public class Room {
-    private RoomType type;
+    private  RoomType type;
     private final double area;
     private final int windowCount;
-    private int balconyCount;
+    private  final int balconyCount;
 
     public Room(RoomType type, double area, int windowCount, int balconyCount) {
         this.area = area;
@@ -18,9 +18,7 @@ public class Room {
         return type;
     }
 
-    public void setType(RoomType type) {
-        this.type = type;
-    }
+
 
     public double getArea() {
         return area;
@@ -30,9 +28,7 @@ public class Room {
         return balconyCount;
     }
 
-    public void setBalconyCount(int balconyCount) {
-        this.balconyCount = balconyCount;
-    }
+
 
     public int getWindowCount() {
         return windowCount;
