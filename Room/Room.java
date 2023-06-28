@@ -3,19 +3,19 @@ package Room;
 import java.util.Objects;
 
 public class Room {
-    private  RoomType type;
+    private   RoomType roomType;
     private final double area;
     private final int windowCount;
     private  final int balconyCount;
 
-    public Room(RoomType type, double area, int windowCount, int balconyCount) {
+    public Room(RoomType roomType, double area, int windowCount, int balconyCount) {
         this.area = area;
         this.windowCount = windowCount;
         this.balconyCount = balconyCount;
     }
 
-    public RoomType getType() {
-        return type;
+    public RoomType getRoomType() {
+        return roomType;
     }
 
 
@@ -39,7 +39,7 @@ public class Room {
         if (this == obj) return true;
         if (!(obj instanceof Room room)) return false;
         return Double.compare(room.area, area) == 0 && windowCount == room.windowCount &&
-                balconyCount == room.balconyCount && type == room.type;
+                balconyCount == room.balconyCount && roomType == room.roomType;
 
     }
 
@@ -50,7 +50,7 @@ public class Room {
 
     public String toString() {
         return "Room{" +
-                "type=" + type +
+                "type=" + roomType +
                 ",area=" + area +
                 ",windowCount=" + windowCount +
                 ",balconyCount=" + balconyCount +
