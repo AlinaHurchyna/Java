@@ -1,7 +1,7 @@
 package Cloth;
 
 public class main {
-    public static void main(String[] args) {
+    public static void Main(String[] args) {
         Clothing clothing = new Clothing();
         clothing.addCloth(new Cloth(ClothType.PANTS, ClothColor.RED, 0.5));
         clothing.addCloth(new Cloth(ClothType.SOCKS, ClothColor.RED, 0.1));

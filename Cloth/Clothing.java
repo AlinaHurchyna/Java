@@ -2,9 +2,11 @@ package Cloth;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 public class Clothing {
-    private List<Cloth> clothes;
+    private final  List<Cloth> clothes;
 
     public Clothing() {
         this.clothes = new ArrayList<>();
@@ -15,11 +17,10 @@ public class Clothing {
     }
 
     public double getTotalWeight() {
-        double totalWeight = 0.0;
-        for (Cloth cloth : clothes) {
-            totalWeight = totalWeight + cloth.getWieght();
-        }
-        return totalWeight;
+        return clothes.stream()
+        .mapToDouble(Cloth::getWieght)
+                .sum();
+
     }
 
     public boolean areAllSameColor() {
@@ -27,12 +28,9 @@ public class Clothing {
             return true;
         }
 
-        ClothColor firstColor = clothes.get(0).getColor();
-        for (Cloth cloth : clothes) {
-            if (!cloth.getColor().equals(firstColor)) {
-                return false;
-            }
-        }
-        return true;
+        Set<ClothColor>  colors= clothes.stream()
+                .map(Cloth::getColor)
+                .collect(Collectors.toSet());
+        return clothes.size()==1;
     }
 }
