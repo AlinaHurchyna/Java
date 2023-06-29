@@ -24,13 +24,9 @@ public class Clothing {
     }
 
     public boolean areAllSameColor() {
-        if (clothes.isEmpty()) {
-            return true;
-        }
-
-        Set<ClothColor>  colors= clothes.stream()
+        return clothes.stream()
                 .map(Cloth::getColor)
-                .collect(Collectors.toSet());
-        return clothes.size()==1;
+                .distinct()
+                .count() == 1;
     }
 }
