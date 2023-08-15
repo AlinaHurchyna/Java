@@ -1,5 +1,4 @@
 package org.example;
-
 import java.util.regex.Pattern;
 import java.util.regex.Matcher;
 
@@ -10,13 +9,7 @@ public class UserValidator {
             private final String formattedEmail;
 
             public Email(String email) {
-                if (email == null || email.isEmpty()) {
-                    formattedEmail = "unknown";
-                } else if (!isValidEmail(email)) {
-                    formattedEmail = "unknown";
-                } else {
-                    formattedEmail = email;
-                }
+                formattedEmail = (email == null || email.isEmpty() || !isValidEmail(email)) ? "unknown" : email;
             }
 
             public String getFormattedEmail() {
