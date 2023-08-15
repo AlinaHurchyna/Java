@@ -9,7 +9,11 @@ public class UserValidator {
             private final String formattedEmail;
 
             public Email(String email) {
-                formattedEmail = (email == null || email.isEmpty() || !isValidEmail(email)) ? "unknown" : email;
+                if (email == null || email.isEmpty() || !isValidEmail(email)) {
+                    formattedEmail = "unknown";
+                } else {
+                    formattedEmail = email;
+                }
             }
 
             public String getFormattedEmail() {
